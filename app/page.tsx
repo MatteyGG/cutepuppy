@@ -14,8 +14,16 @@ export default function Home() {
     "самая",
     "единственная",
     "заботливая",
-    "важная"
-
+    "важная",
+    "неповторимая",
+    "драгоценная",
+    "неповторимая",
+    "родная",
+    "бесценная",
+    "изумительная",
+    "прекрасная",
+    "удивительная",
+    "необыкновенная",
   ];
   const [randomName, setRandomName] = useState(
     name[Math.floor(Math.random() * name.length)]
@@ -23,6 +31,7 @@ export default function Home() {
 
   const rerollName = () => {
     setRandomName(name[Math.floor(Math.random() * name.length)]);
+  };
   };
 
   return (
