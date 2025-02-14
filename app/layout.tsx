@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         {children}
         <canvas id="heart" style={{ position: "fixed", left: 0, top: 0, width: "100vw", height: "100vh", zIndex: -1 }} />
-        <Script src="heart.js" strategy="beforeInteractive" />
+        <Script src="heart.js" />
       </body>
     </html>
   );

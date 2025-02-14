@@ -2,10 +2,13 @@
 
 import Image from "next/image";
 import React from "react";
+import { useState } from "react";
 
 export default function Home() {
   const name = ["дорогая", "красивая", "любимая", "лучшая", "самая"];
-  const [randomName, setRandomName] = React.useState(name[Math.floor(Math.random() * name.length)]);
+  const [randomName, setRandomName] = useState(
+    name[Math.floor(Math.random() * name.length)]
+  );
 
   const rerollName = () => {
     setRandomName(name[Math.floor(Math.random() * name.length)]);
@@ -18,16 +21,17 @@ export default function Home() {
           Поправляйся
         </span>
         ,<br /> <span className="text-white">Мой милый пёсик</span>
-        <p>Ты самая {randomName}</p>
-        <button
+        <p>Ты моя самая {randomName}</p>
+        <Image
+          src="/dice.png"
+          alt="refresh"
           onClick={rerollName}
           className="mt-4 px-4 py-2 
          hover:bg-blue-600 text-white rounded transition duration-500 animate-bounce"
-        >
-          <Image src="/dice.png" alt="refresh" width={24} height={24} />
-        </button>
+          width={24}
+          height={24}
+        />
       </div>
     </div>
   );
 }
-
