@@ -23,14 +23,14 @@ var init = function () {
     if (loaded) return;
     loaded = true;
     var mobile = window.isDevice;
-    var koef = mobile ? 0.5 : 1;
+    var koef = mobile ? 1 : 1;
     var canvas = document.getElementById('heart');
     var ctx = canvas.getContext('2d');
     var width = canvas.width = koef * innerWidth;
     var height = canvas.height = koef * innerHeight;
     var rand = Math.random;
     ctx.fillStyle = "rgba(0,0,0,1)";
-    ctx.fillRect(0, 0, width, height);
+    ctx.fillRect(4, 0, width, height);
 
     var heartPosition = function (rad) {
         //return [Math.sin(rad), Math.cos(rad)];
@@ -44,7 +44,7 @@ var init = function () {
         width = canvas.width = koef * innerWidth;
         height = canvas.height = koef * innerHeight;
         ctx.fillStyle = "rgba(0,0,0,1)";
-        ctx.fillRect(0, 0, width, height);
+        ctx.fillRect(4, 0, width, height);
     });
 
     var traceCount = mobile ? 20 : 50;
@@ -87,6 +87,15 @@ var init = function () {
         traceK: 0.4,
         timeDelta: 0.01
     };
+
+    var textLayer = document.createElement('div');
+    textLayer.className = 'text-layer';
+    document.body.appendChild(textLayer);
+
+    var text = document.createElement('div');
+    text.className = 'text';
+    text.textContent = ' ';
+    textLayer.appendChild(text);
 
     var time = 0;
     var loop = function () {
@@ -133,8 +142,8 @@ var init = function () {
                 ctx.fillRect(u.trace[k].x, u.trace[k].y, 1, 1);
             }
         }
-        //ctx.fillStyle = "rgba(255,255,255,1)";
-        //for (i = u.trace.length; i--;) ctx.fillRect(targetPoints[i][0], targetPoints[i][1], 3, 3);
+        text.style.left = ~~(width / 2) + 'px';
+        text.style.top = ~~(height / 2) + 'px';
 
         window.requestAnimationFrame(loop, canvas);
     };
@@ -144,3 +153,4 @@ var init = function () {
 var s = document.readyState;
 if (s === 'complete' || s === 'loaded' || s === 'interactive') init();
 else document.addEventListener('DOMContentLoaded', init, false);
+
