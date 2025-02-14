@@ -7,12 +7,14 @@ import { useState } from "react";
 export default function Home() {
   const name = [
     "дорогая",
+    "милая",
     "красивая",
     "любимая",
     "лучшая",
     "самая",
     "единственная",
     "заботливая",
+    "важная"
 
   ];
   const [randomName, setRandomName] = useState(
