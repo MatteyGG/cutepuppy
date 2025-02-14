@@ -17,13 +17,12 @@ export default function Home() {
     "важная",
     "неповторимая",
     "драгоценная",
-    "неповторимая",
     "родная",
     "бесценная",
     "изумительная",
     "прекрасная",
     "удивительная",
-    "необыкновенная",
+    "необыкновенная"
   ];
   const [randomName, setRandomName] = useState(
     name[Math.floor(Math.random() * name.length)]
@@ -32,19 +31,18 @@ export default function Home() {
   const rerollName = () => {
     setRandomName(name[Math.floor(Math.random() * name.length)]);
   };
-  };
 
   return (
     <div className="flex flex-col justify-center items-center h-screen">
-      <div className=" text-3xl font-bold text-white">
+      <div className="text-3xl font-bold text-white">
         <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ef4444] to-red-300">
           Поправляйся
         </span>
-        ,<br /> <span className="text-white">Мой милый пёсик❤️</span>
+        ,<br />
+        <span className="text-white">Мой милый пёсик❤️</span>
         <p>Ты моя самая {randomName}!</p>
         <button
-          className="mt-4 px-4 py-2 
-         hover:bg-blue-600 bg-blue-500 text-white rounded transition duration-500 animate-bounce"
+          className="mt-4 px-4 py-2 hover:bg-blue-600 bg-blue-500 text-white rounded transition duration-500 animate-bounce"
           onClick={rerollName}
         >
           <Image src="/dice.png" alt="refresh" width={24} height={24} />
@@ -53,3 +51,4 @@ export default function Home() {
     </div>
   );
 }
+
